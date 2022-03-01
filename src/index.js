@@ -4,12 +4,15 @@ const increase = document.getElementById("increase");
 const decrease = document.getElementById("decrease");
 const result = document.querySelector("span");
 
+const PLUS = "PLUS";
+const MINUS = "MINUS";
+
 const reducer = (count = 0, { type }) => {
   switch (type) {
-    case "PLUS":
-      return count + 1;
-    case "MINUS":
-      return count - 1;
+    case PLUS:
+      return ++count;
+    case MINUS:
+      return --count;
     default:
       return count;
   }
@@ -18,5 +21,5 @@ const reducer = (count = 0, { type }) => {
 const store = createStore(reducer);
 store.subscribe(() => (result.innerText = store.getState()));
 
-increase.addEventListener("click", () => store.dispatch({ type: "PLUS" }));
-decrease.addEventListener("click", () => store.dispatch({ type: "MINUS" }));
+increase.addEventListener("click", () => store.dispatch({ type: PLUS }));
+decrease.addEventListener("click", () => store.dispatch({ type: MINUS }));
