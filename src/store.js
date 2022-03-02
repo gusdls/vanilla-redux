@@ -3,19 +3,10 @@ import { createStore } from "redux";
 const ADD = "ADD";
 const DELETE = "DELETE";
 
-export class AddToDo {
-  constructor(text) {
-    this.type = ADD;
-    this.text = text;
-  }
-}
-
-export class DeleteToDo {
-  constructor(id) {
-    this.type = DELETE;
-    this.id = id;
-  }
-}
+export const toDoAction = {
+  add: (text) => ({ type: ADD, text }),
+  delete: (id) => ({ type: DELETE, id }),
+};
 
 const reducer = (state = [], { type, text, id }) => {
   switch (type) {
