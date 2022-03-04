@@ -12,7 +12,7 @@ function ToDo({ text, id, deleteToDo }) {
 }
 
 const mapDispatchToProps = (dispatch, { id }) => ({
-  deleteToDo: () => dispatch(toDoAction.delete(id)),
+  deleteToDo: () => dispatch(toDoAction.remove(id)),
 });
 
 export default connect(null, mapDispatchToProps)(ToDo);
